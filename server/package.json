@@ -1,0 +1,10 @@
+{
+  "name": "MyMusic",
+  "version": "0.0.1",
+  "description": "An online, social music sharing site.",
+  "author": "Tyler Scott <tyduptyler13@myuplay.com> (https://myuplay.com)",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}

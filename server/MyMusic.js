@@ -1,14 +1,17 @@
 "use strict";
 //Includes
 const express = require('express');
-const io = require('socket.io')(app);
+const socket = require('socket.io');
 const crypto = require('crypto');
+const http = require('http');
 
 //Prep
 const app = express();
+const server = http.Server(app);
+const io = socket(server);
 
 //Setup
-app.use('/', express.static(__dirname + '/client'));
+app.use('/', express.static(__dirname + '/../client'));
 
 const rooms = {};
 var userCount = 0;
@@ -100,8 +103,11 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('join', function(data){
+		if (socket.room){
+			socket.leave(socket.room.name);
+		}
 		if (rooms[data.room]){
-			socket.room = rooms[data.room);
+			socket.room = rooms[data.room];
 		} else {
 			socket.room = new Room(data.room);
 			rooms.push(socket.room);

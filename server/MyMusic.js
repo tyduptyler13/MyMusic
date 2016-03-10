@@ -1,17 +1,18 @@
 "use strict";
 //Includes
-const express = require('express');
-const socket = require('socket.io');
+//const express = require('express');
+//const socket = require('socket.io');
 const crypto = require('crypto');
-const http = require('http');
+//const http = require('http');
 
 //Prep
-const app = express();
-const server = http.Server(app);
-const io = socket(server);
+//const app = express();
+//const server = http.Server(app);
+//const io = socket(server);
+const io = require('socket.io')(8880);
 
 //Setup
-app.use('/', express.static(__dirname + '/../client'));
+//app.use('/', express.static(__dirname + '/../client'));
 
 const rooms = {};
 var userCount = 0;
@@ -26,13 +27,11 @@ class Room {
 	}
 
 	addChat(chat) {
-
 		this.chat.push(chat);
 
 		if (this.chat.length > 50){
 			this.chat.shift();
 		}
-
 	}
 
 	addUser(user) {
@@ -85,10 +84,6 @@ class User {
 
 }
 
-
-
-
-
 io.on('connection', function(socket) {
 
 	userCount++;
@@ -123,13 +118,13 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('disconnect', function(socket){
-		socket.broadcast.to(socket.room.name).emit('leave', {user: socket.user});
-		socket.room.removeUser(socket.user);
+		//socket.broadcast.to(socket.room.name).emit('leave', {user: socket.user});
+		//socket.room.removeUser(socket.user);
 		userCount--;
 	});
 
 });
 
 //Run
-app.listen(5455);
+//app.listen(5455);
 

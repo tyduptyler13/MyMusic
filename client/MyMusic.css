@@ -1,24 +1,21 @@
 html, body {
     width: 100%;
     height: 100%;
+}
+
+body {
     margin: 0;
     overflow: hidden;
-}
-
-.fill {
-    width: 100%;
-    height: 100%;
-}
-
-.nobd {
-    border: none;
-    border-collapse: collapse;
+    margin-top: 65px;
+    margin-bottom: 45px;
+    background-color: black;
+    box-sizing: border-box;
 }
 
 #top {
-    height: 60px;
-    background-color: black;
     color: white;
+    text-shadow: black 2px 2px 5px;
+    background-color: rgba(100,100,100,0.7);
 }
 
 #top * {
@@ -41,14 +38,17 @@ html, body {
     color: white;
 }
 
-#userUI {
-    background-color: gray;
-    vertical-align: top;
-    width: 300px;
+#video {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Behind everythign else */
 }
 
-#chat {
+.theme {
     background-color: gray;
-    vertical-align: top;
-    width: 300px;
+    color: white;
+    text-shadow: black 2px 2px 3px;
 }

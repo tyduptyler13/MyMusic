@@ -4,37 +4,41 @@
 
 <title>MyMusic</title>
 
-<link rel="stylesheet" href="MyMusic.css"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/yeti/bootstrap.min.css">
+<link rel="stylesheet" href="MyMusic.css">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="MyMusic.js" href="MyMusic.js"></script>
 
 </head>
 <body>
 
-<table class="fill nobd">
-<tr>
-    <td id="top">
-        <h3 id="room" title="In the future this can be changed">Room: Beta</h3>
-        <h1 id="title">MyMusic</h1>
-    </td>
-</tr>
-<tr>
-    <td>
-        <table class="fill nobd">
-            <tr>
-                <td id="userUI">
-                    <h4>Users:</h4>
-                    <div id="userList"></div>
-                </td>
-                <td></td>
-                <td id="chat">
-                </td>
-        </table>
-    </td>
-</tr>
-<tr><td id="bottom"></td></tr>
-</table>
+<header id="top" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <h3 id="room" title="In the future this can be changed">Room:&nbsp;<span class="roomName"></span></h3>
+            <h1 id="title">MyMusic</h1>
+        </div>
+    </div>
+</header>
+
+<div id="content" class="container-fluid">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <h4 class="theme">Users:</h4>
+        <div id="userList"></div>
+    </div>
+
+    <div id="chat" class="col-md-3 col-md-offset-6 col-sm-6 col-sm-offset-0 col-xs-12">
+        <h4 class="theme">Chat</h4>
+    </div>
+</div>
+
+<div id="video">
+</div>
+
+<footer id="footer" class="navbar navbar-default navbar-fixed-bottom"></footer>
 
 </body>
 </html>

@@ -38,6 +38,11 @@ body {
     color: white;
 }
 
+#content {
+	width: 100%;
+	height: 100%;
+}
+
 #video {
     position: fixed;
     width: 100%;
@@ -47,13 +52,17 @@ body {
     z-index: -1; /* Behind everythign else */
 }
 
-#controls-thumbs-up, #controls-thumbs-down, #controls-vote-skip {
-	text-align: right;
-	font-size: 250%;
-	padding-top: 5px;
-    padding-right: 15px;
-    padding-bottom: 5px;
-    padding-left: 15px;
+#chatUI {
+	opacity: .1;
+}
+
+#chatUI:hover {
+	opacity: 1;
+}
+
+#chatData {
+	min-height: 400px;
+	max-height: 500px;
 }
 
 .theme {

@@ -7,10 +7,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/yeti/bootstrap.min.css">
 <link rel="stylesheet" href="MyMusic.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="MyMusic.js" href="MyMusic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js">
+</script>
+<script src="//io.music.myuplay.com/socket.io/socket.io.js">
+</script>
+<script src="MyMusic.js" href="MyMusic.js">
+</script>
+
+<script async src="https://www.youtube.com/iframe_api">
+</script>
 
 </head>
 <body>
@@ -25,13 +32,24 @@
 </header>
 
 <div id="content" class="container-fluid">
-    <div class="col-md-3 col-sm-6 col-xs-12">
+    <div id="userUI" class="col-md-3 col-sm-6 col-xs-12">
         <h4 class="theme">Users:</h4>
         <div id="userList"></div>
     </div>
 
-    <div id="chat" class="col-md-3 col-md-offset-6 col-sm-6 col-sm-offset-0 col-xs-12">
-        <h4 class="theme">Chat</h4>
+    <div class="col-md-3 col-md-offset-6 col-sm-6 col-sm-offset-0 col-xs-12">
+    	<div id="chatUI" class="panel panel-default">
+    		<div class="panel-heading">Chat</div>
+    		<div id="chatData" class="panel-body"></div>
+    		<div class="panel-footer">
+				<div class="input-group">
+					<input id="chatBox" type="text" class="form-control" placeholder="/command or chat">
+					<span class="input-group-btn">
+						<button id="chatButton" class="btn btn-default" type="button">Enter</button>
+					</span>
+				</div>
+    		</div>
+		</div>
     </div>
 </div>
 
@@ -39,10 +57,12 @@
 </div>
 
 <footer id="footer" class="navbar navbar-default navbar-fixed-bottom">
-	<div id="controls" style="text-align:right">
-		<span id="controls-thumbs-up" class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-		<span id="controls-thumbs-down" class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-		<span id="controls-vote-skip" class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+	<div class="container-fluid">
+		<ul class="nav navbar-nav navbar-right">
+			<li><button id="controls-thumbs-up" class="btn btn-default navbar-btn" type="button"><span class="glyphicon glyphicon-thumbs-up"></span></button></li>
+			<li><button id="controls-thumbs-down" class="btn btn-default navbar-btn" type="button"><span class="glyphicon glyphicon-thumbs-down"></span></button></li>
+			<li><button id="controls-vote-skip" class="btn btn-default navbar-btn" type="button"><span class="glyphicon glyphicon-step-forward"></span></button></li>
+		</ul>
 	</div>
 </footer>
 

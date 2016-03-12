@@ -77,3 +77,8 @@
 
 })();
 
+/*ToolTipCode I tried to get working*/
+$(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+});
+
